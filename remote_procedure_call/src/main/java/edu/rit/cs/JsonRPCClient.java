@@ -28,7 +28,7 @@ public class JsonRPCClient {
 			serverURL = new URL("http://"+args[0]);
 
 		} catch (MalformedURLException e) {
-		// handle exception...
+			System.out.println("ServerURL exception at line 31"+e.getMessage());
 		}
 
 		// Create new JSON-RPC 2.0 client session
@@ -56,13 +56,16 @@ public class JsonRPCClient {
 
 		} catch (JSONRPC2SessionException e) {
 
-		System.err.println(e.getMessage());
+			System.out.println("Error here!! at request bind");
+			System.err.println(e.getMessage());
 		// handle exception...
 		}
 
 		// Print response result / error
-		if (response.indicatesSuccess())
+		if (response.indicatesSuccess()){
+			System.out.println("Error here!! at response");
 			System.out.println(response.getResult());
+		}
 		else
 			System.out.println(response.getError().getMessage());
 

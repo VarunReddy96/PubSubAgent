@@ -69,6 +69,9 @@ public class JsonRPCServer {
 		public void run() {
 			try {
 				// Create character streams for the socket.
+
+				System.out.println("Received socket onto thread. Lauching thread");
+
 				in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 				out = new PrintWriter(socket.getOutputStream(), true);
 
