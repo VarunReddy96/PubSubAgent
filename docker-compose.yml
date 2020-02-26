@@ -1,7 +1,7 @@
 # Test this without rebuilding the docker image $> docker-compose up
 # Test this with rebuilding the docker image $> docker-compose up --build
 
-version: '3.7'
+version: '3'
 
 services:
   peer1:
@@ -74,7 +74,7 @@ services:
       - /bin/bash
       - -c
       - |
-        java -cp target/remote_procedure_call-1.0-SNAPSHOT.jar edu.rit.cs.JsonRPCClient rmiserver:9091
+        java -cp target/remote_procedure_call-1.0-SNAPSHOT.jar edu.rit.cs.JsonRPCClient rmiserver:10001
         tail -f /dev/null
 
 
