@@ -25,8 +25,8 @@ public class JsonRPCClient {
 		URL serverURL = null;
 
 		try {
-			System.out.println("In try before");
-			serverURL = new URL("http://"+args[0]);
+			System.out.println("In try before:  "+"http://"+args[0]+":"+args[1]);
+			serverURL = new URL("http://"+args[0]+":"+args[1]);
 			System.out.println("In try after");
 
 		} catch (MalformedURLException e) {
