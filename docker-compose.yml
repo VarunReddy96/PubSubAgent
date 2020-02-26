@@ -5,6 +5,9 @@ version: '3'
 
 services:
   rmiserver:
+    build:
+      context: .
+      dockerfile: Dockerfile
     image: csci652:latest
     container_name: rmiserver
     working_dir: /csci652/remote_procedure_call
