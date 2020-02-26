@@ -31,8 +31,12 @@ public class JsonRPCClient {
 			System.out.println("ServerURL exception at line 31"+e.getMessage());
 		}
 
+		System.out.println("ServerURL at line 34");
 		// Create new JSON-RPC 2.0 client session
+		
 		JSONRPC2Session mySession = new JSONRPC2Session(serverURL);
+		
+		System.out.println("ServerURL at line 39");
 
 
 		// Once the client session object is created, you can use to send a series
