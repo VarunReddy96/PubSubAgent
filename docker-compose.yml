@@ -4,51 +4,9 @@
 version: '3'
 
 services:
-  peer1:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    image: csci652:latest
-    container_name: peer1
-    working_dir: /csci652
-    networks:
-      - csci652network
-    ports:
-      - 9091
-      - 9092
-      - 9093
-    command:
-      - /bin/bash
-      - -c
-      - |
-        echo "Initialize peer1...done!"
-        tail -f /dev/null
-
-
-  peer2:
-    image: csci652:latest
-    container_name: peer2
-    depends_on:
-      - peer1
-    working_dir: /csci652
-    networks:
-      - csci652network
-    ports:
-      - 9091
-      - 9092
-      - 9093
-    command:
-      - /bin/bash
-      - -c
-      - |
-        echo "Initialize peer2...done!"
-        tail -f /dev/null
-
   rmiserver:
     image: csci652:latest
     container_name: rmiserver
-    depends_on:
-      - peer1
     working_dir: /csci652/remote_procedure_call
     networks:
       - csci652network
