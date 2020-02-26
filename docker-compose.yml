@@ -49,7 +49,7 @@ services:
     container_name: rmiserver
     depends_on:
       - peer1
-    working_dir: /csci652/remote_method_invocation
+    working_dir: /csci652/remote_procedure_call
     networks:
       - csci652network
     ports:
@@ -58,6 +58,7 @@ services:
       - /bin/bash
       - -c
       - |
+        java -cp target/remote_procedure_call-1.0-SNAPSHOT.jar edu.rit.cs.JsonRPCServer
         echo "Initialize rmiserver...done!"
         tail -f /dev/null
 
@@ -66,14 +67,14 @@ services:
     container_name: rmiclient
     depends_on:
       - rmiserver
-    working_dir: /csci652/remote_method_invocation
+    working_dir: /csci652/remote_procedure_call
     networks:
     - csci652network
     command:
       - /bin/bash
       - -c
       - |
-        echo "Initialize rmiclient...done!"
+        java -cp target/remote_procedure_call-1.0-SNAPSHOT.jar edu.rit.cs.JsonRPCClient rmiserver:9091
         tail -f /dev/null
 
 
