@@ -80,9 +80,11 @@ public class JsonRPCClient {
 			System.out.println("Error here!! at response");
 			System.out.println(response.getResult());
 		}
-		else
+		else{
 			System.out.println("Error here!! at response! but in else statement");
 			System.out.println(response.getError().getMessage());
+		    
+		}
 
 	}
 }
