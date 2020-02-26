@@ -26,7 +26,7 @@ public class JsonRPCServer {
 	/**
 	 * The port that the server listens on.
 	 */
-	private static final int PORT = 9091;
+	private static final int PORT = 10001;
 
 
 
