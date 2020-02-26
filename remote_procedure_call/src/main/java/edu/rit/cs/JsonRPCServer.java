@@ -138,9 +138,9 @@ public class JsonRPCServer {
 		ServerSocket listener = new ServerSocket(PORT);
 		try {
 			while (true) {
-				System.out.println("Hello in server main")
+				System.out.println("Hello in server main");
 				new Handler(listener.accept()).start();
-				System.out.println("Accepted a packet")
+				System.out.println("Accepted a packet");
 			}
 		} finally {
 			listener.close();
