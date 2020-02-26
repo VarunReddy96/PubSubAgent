@@ -36,6 +36,13 @@ public class JsonRPCClient {
 		System.out.println("ServerURL at line 34");
 		// Create new JSON-RPC 2.0 client session
 		
+		try{
+		Thread.sleep(2000);
+		}catch(Exception e){
+			System.out.println("IN exception in sleep statement");
+			System.out.println(e.getMessage());
+		}
+		
 		JSONRPC2Session mySession = new JSONRPC2Session(serverURL);
 		
 		System.out.println("ServerURL at line 39");
