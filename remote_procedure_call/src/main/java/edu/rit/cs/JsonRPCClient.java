@@ -71,6 +71,7 @@ public class JsonRPCClient {
 			System.out.println(response.getResult());
 		}
 		else
+			System.out.println("Error here!! at response! but in else statement");
 			System.out.println(response.getError().getMessage());
 
 	}
