@@ -63,6 +63,7 @@ public class JsonRPCClient {
 		} catch (JSONRPC2SessionException e) {
 
 			System.out.println("Error here!! at request bind");
+			e.printStackTrace();
 			System.err.println(e.getMessage());
 		// handle exception...
 		}
