@@ -45,13 +45,13 @@ public class PubSubAgent implements Publisher, Subscriber {
 
         new PubSubListner(this).start();
         new PubSubAgentEcho(ipaddress, pubsub_id, ip).start();
-        try {
-            System.out.println("The value of Ip address is: "+ipaddress);
-            System.out.println("The value of ip of event Manager is: "+InetAddress.getByName(ipaddress));
-        } catch (UnknownHostException e) {
-            System.out.println("Found error here");
-            e.printStackTrace();
-        }
+//        try {
+//            System.out.println("The value of Ip address is: "+ipaddress);
+//            System.out.println("The value of ip of event Manager is: "+InetAddress.getByName(ipaddress));
+//        } catch (UnknownHostException e) {
+//            System.out.println("Found error here");
+//            e.printStackTrace();
+//        }
         Socket socket;
 		try {
 			socket = new Socket(ipaddress, 11000);
