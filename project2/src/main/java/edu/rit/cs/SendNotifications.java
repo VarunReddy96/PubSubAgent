@@ -12,7 +12,7 @@ public class SendNotifications extends Thread {
     public InetAddress ip;
     public Classfinder obj;
     public String macid;
-    public int Qos = 0;
+    public int Qos = 1;
 
     public SendNotifications(InetAddress ip, EventManager em, Classfinder obj, String macid){
         this.ip = ip;
@@ -30,16 +30,12 @@ public class SendNotifications extends Thread {
     }
 
     public void run(){
-        try {
-            System.out.println("In send Notifications");
-            Socket socket = new Socket(this.ip,9030);
+        System.out.println("In send Notifications ip is: "+this.ip);
+        try(Socket socket = new Socket(this.ip,9030)) {
             ObjectOutputStream outputstream = new ObjectOutputStream(socket.getOutputStream());
 
             //System.out.println("Sending the object to ip: "+ip+" macid: "+macid+" ------"+this.obj.sendclassname());
             outputstream.writeObject(this.obj);
-            socket.close();
-
-
 
         } catch (IOException e) {
 
