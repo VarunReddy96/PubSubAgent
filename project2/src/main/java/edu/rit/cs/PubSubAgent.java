@@ -47,7 +47,7 @@ public class PubSubAgent implements Publisher, Subscriber {
         new PubSubAgentEcho(ipaddress, pubsub_id, ip).start();
 		Socket socket;
 		try {
-			socket = new Socket(ip, 9010);
+			socket = new Socket(InetAddress.getByName(ipaddress), 9010);
 			ObjectOutputStream outputstream = new ObjectOutputStream(socket.getOutputStream());
 
 			System.out.println("pubsub_id: " + pubsub_id);

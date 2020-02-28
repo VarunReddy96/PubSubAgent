@@ -26,7 +26,7 @@ Step 4) Open as many new terminal to run PubSubAgents
 *) to run publisher or subscriber.
 ```
 docker run -it csci652:latest bash
-java -cp target/project2-1.0-SNAPSHOT.jar edu.rit.cs.PubSubAgent localhost 10001
+java -cp target/project2-1.0-SNAPSHOT.jar edu.rit.cs.PubSubAgent EventManager 10001
 ```
 
 select the options accordingly when prompted.
