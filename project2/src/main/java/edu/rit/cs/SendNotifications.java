@@ -44,6 +44,7 @@ public class SendNotifications extends Thread {
         } catch (IOException e) {
 
             if(Qos!=0) {
+                System.out.println("Storing the message of classname: "+obj.sendclassname());
                 ConcurrentHashMap<InetAddress, Classfinder> message = new ConcurrentHashMap<>();
                 message.put(ip, obj);
                 this.em.messagequeue.put(macid, message);

@@ -174,7 +174,7 @@ public class PubSubAgent implements Publisher, Subscriber {
 			do {
 				System.out.println("Enter the operation you want to " +
 						"perform  on subscriber 1) subscribe with topic  2) subscribe with keyword 3) unsubscribe topic " +
-						"4) unsubscribe from all topics 5) shutdown: ");
+						"4) unsubscribe from all topics 5) listallsubscribers 6) shutdown: ");
 
 				scan = new Scanner(System.in);
 				int operation_option = scan.nextInt();
@@ -257,7 +257,20 @@ public class PubSubAgent implements Publisher, Subscriber {
 					}
 
 					new performoperations(this, option, operation_option).start();
-				}else {
+				}else if(operation_option==5) {
+
+                    //br = new BufferedReader(new InputStreamReader(System.in));
+                    try {
+                        System.out.println("Do you want to go through another round(y/n): ");
+                        scan = new Scanner(System.in);
+                        cont = scan.nextLine();
+
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+
+                    new performoperations(this, option, operation_option).start();
+                }else {
 					System.out.println("in else----------------");
 					//br = new BufferedReader(new InputStreamReader(System.in));
 					cont = "n";

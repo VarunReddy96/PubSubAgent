@@ -58,6 +58,9 @@ public class performoperations extends Thread {
             }else if(this.operations_option == 4){
                 System.out.println("unsubscribing to all topics--------------");
                 this.em.unsubscribe();
+            }else if(this.operations_option == 5){
+                System.out.println("listing all topics--------------");
+                this.em.listSubscribedTopics();
             }
 
         }

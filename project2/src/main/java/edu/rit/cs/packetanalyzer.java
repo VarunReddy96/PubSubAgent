@@ -24,7 +24,7 @@ public class packetanalyzer extends Thread {
             String message = (String)inputstream.readObject();
             String[] vals = message.split(":");
 
-            System.out.println("Before if statement: "+em.networkmap);
+            System.out.println("Before if statement in packetanalyzer-----------: "+em.networkmap);
             if(em.networkmap.containsKey(vals[0])){
                 System.out.println("in if statement");
                 if(em.messagequeue.containsKey(vals[0])){
