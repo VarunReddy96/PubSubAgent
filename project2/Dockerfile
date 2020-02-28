@@ -2,7 +2,7 @@
 # Build image with:  docker build -t csci652:latest .
 
 FROM ubuntu:18.04
-MAINTAINER Peizhao Hu, http://cs.rit.edu/~ph
+MAINTAINER Varun Reddy
 
 # install all dependencies
 RUN apt-get update && \
@@ -15,13 +15,14 @@ RUN apt-get update && \
 
 # create a new directory as the working directory
 RUN mkdir /csci652
+RUN mkdir /csci652/project2
 
 
 # copy files from the directory of the Dockerfile on your computer to this docker build environment.
-COPY project2 /csci652/project2
+COPY basic_word_count /csci652/basic_word_count
 COPY pom.xml /csci652/
 COPY README.md /csci652/
-COPY LICENSE /csci652/
+
 
 # You will need add COPY commands to copy your project source code into the docker build environment.
 # e.g., COPY project1 /csci652/project1

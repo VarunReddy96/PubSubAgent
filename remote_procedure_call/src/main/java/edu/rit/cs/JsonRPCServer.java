@@ -131,12 +131,13 @@ public class JsonRPCServer {
 
 
 
-
 	public static void main(String[] args) throws Exception {
 
 		System.out.println("The server is running.");
 		ServerSocket listener = new ServerSocket(PORT);
 		try {
+
+			JsonRPCServer eventmanager = new JsonRPCServer();
 			while (true) {
 				System.out.println("Hello in server main");
 				new Handler(listener.accept()).start();
