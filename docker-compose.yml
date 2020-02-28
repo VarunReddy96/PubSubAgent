@@ -26,6 +26,8 @@ services:
     container_name: PubSub
     networks:
       - csci652network
+    depends_on:
+      - EventManager
     command:
       - /bin/bash
       - -c

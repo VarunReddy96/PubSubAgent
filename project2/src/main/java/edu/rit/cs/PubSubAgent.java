@@ -270,6 +270,7 @@ public class PubSubAgent implements Publisher, Subscriber {
 
 
 		}
+        this.listen = false;
 
 
 
