@@ -133,6 +133,10 @@ public class PubSubAgent implements Publisher, Subscriber {
                     scan = new Scanner(System.in);
                     String contents = scan.nextLine();
 
+                    System.out.println("Enter the QOS of the event(0 or 1 or 2): ");
+                    scan = new Scanner(System.in);
+                    int qos = scan.nextInt();
+
                     System.out.println("Enter the topic name to which the event belongs to: ");
                     scan = new Scanner(System.in);
                     String topic_name = scan.nextLine();
@@ -159,7 +163,7 @@ public class PubSubAgent implements Publisher, Subscriber {
 
 
 
-                    new performoperations(this, option, operation_option, event).start();
+                    new performoperations(this, option, operation_option, event,qos).start();
                 }else {
 					System.out.println("in else----------------");
                 	//br = new BufferedReader(new InputStreamReader(System.in));
@@ -485,7 +489,7 @@ public class PubSubAgent implements Publisher, Subscriber {
     }
 
     @Override
-    public void publish(Event event) {
+    public void publish(Event event, int qos) {
         // TODO Auto-generated method stub
 
         JSONRPC2Session mySession = new JSONRPC2Session(serverURL);
@@ -498,7 +502,7 @@ public class PubSubAgent implements Publisher, Subscriber {
         List<String> deviceinfo = new ArrayList<>();
         deviceinfo.add(pubsub_id);
         deviceinfo.add(ip + "");
-        deviceinfo.add(2 + "");
+        deviceinfo.add(qos + "");
         System.out.println("The value of deviceInfo in publish is: " + deviceinfo);
 
         myParams.put("deviceinfo", deviceinfo);

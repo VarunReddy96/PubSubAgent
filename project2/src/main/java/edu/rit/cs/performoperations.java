@@ -8,6 +8,7 @@ public class performoperations extends Thread {
     public Topic newtopic = new Topic();
     public Event event = new Event();
     public String keyword = "";
+    public int qos = 0;
 
     public performoperations(PubSubAgent em, int option, int operations_option,Topic newtopic){
         this.em = em;
@@ -22,11 +23,12 @@ public class performoperations extends Thread {
         this.operations_option = operations_option;
     }
 
-    public performoperations(PubSubAgent em, int option, int operations_option,Event event){
+    public performoperations(PubSubAgent em, int option, int operations_option,Event event,int qos){
         this.em = em;
         this.option = option;
         this.operations_option = operations_option;
         this.event = event;
+        this.qos = qos;
     }
 
     public performoperations(PubSubAgent em, int option, int operations_option,String keyword){
@@ -43,7 +45,7 @@ public class performoperations extends Thread {
                 this.em.advertise(newtopic);
             }else{
                 System.out.println("publishing--------------");
-                this.em.publish(event);
+                this.em.publish(event,qos);
             }
         }else{
             if(this.operations_option == 1){
