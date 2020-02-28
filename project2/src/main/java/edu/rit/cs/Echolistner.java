@@ -12,6 +12,7 @@ public class Echolistner extends Thread {
     }
     public void run(){
         while(true){
+            System.out.println("Starting the Echolistner");
             try {
                 byte[] buff = new byte[256];
                 DatagramSocket socket = new DatagramSocket(9020);

@@ -9,8 +9,10 @@ public class EMListner extends Thread {
         this.em = em;
     }
     public void run(){
+        System.out.println("Starting the EMLListner");
         try {
             while (true) {
+
                 ServerSocket servsocket = new ServerSocket(9010);
                 new packetanalyzer(servsocket.accept(),this.em).start();
                 servsocket.close();
