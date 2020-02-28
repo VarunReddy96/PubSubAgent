@@ -21,20 +21,6 @@ services:
         echo "Initialize pubsubagent...done!"
         tail -f /dev/null
 
-  PubSub:
-    image: csci652:latest
-    container_name: PubSub
-    networks:
-      - csci652network
-    depends_on:
-      - EventManager
-    command:
-      - /bin/bash
-      - -c
-      - |
-        cd project2
-        echo "Initialize pubsubagent...done!"
-        tail -f /dev/null
 
 networks:
   csci652network:
