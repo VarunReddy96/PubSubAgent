@@ -4,17 +4,20 @@
 version: '3'
 
 services:
-  pubsubagent:
+  EventManager:
     build:
       context: .
       dockerfile: Dockerfile
     image: csci652:latest
+    container_name: EventManager
     networks:
       - csci652network
     command:
       - /bin/bash
       - -c
       - |
+        cd project2
+        java -cp target/project2-1.0-SNAPSHOT.jar edu.rit.cs.EventManager
         echo "Initialize pubsubagent...done!"
         tail -f /dev/null
 
