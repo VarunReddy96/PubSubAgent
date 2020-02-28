@@ -72,7 +72,9 @@ public class PubSubAgent implements Publisher, Subscriber {
 			socket.close();
 
 		} catch (IOException e) {
-			e.printStackTrace();
+			System.out.println("Error here at socket pubsub");
+			System.out.println(e.getMessage());
+		    e.printStackTrace();
 		}
 
 		System.out.println("entering startconnection");
