@@ -164,6 +164,7 @@ public class PubSubAgent implements Publisher, Subscriber {
 					System.out.println("in else----------------");
                 	//br = new BufferedReader(new InputStreamReader(System.in));
                 	cont = "n";
+                	this.listen = false;
 				}
 
 			} while (cont.equals("y"));
@@ -260,17 +261,17 @@ public class PubSubAgent implements Publisher, Subscriber {
 					System.out.println("in else----------------");
 					//br = new BufferedReader(new InputStreamReader(System.in));
 					cont = "n";
+                    this.listen = false;
 
 
 				}
+                this.listen = false;
 
 
 			} while (cont.equals("y"));
-            this.listen = false;
 
 
 		}
-        this.listen = false;
 
 
 
