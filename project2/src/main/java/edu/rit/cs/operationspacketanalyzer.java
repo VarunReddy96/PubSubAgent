@@ -23,9 +23,7 @@ public class operationspacketanalyzer extends Thread {
         this.socket = socket;
         this.dispatcher = new Dispatcher();
 
-        // Register the "echo", "getDate" and "getTime" handlers with it
-        dispatcher.register(new JsonHandler.EchoHandler());
-        dispatcher.register(new JsonHandler.DateTimeHandler());
+        // Register the "echo", "getDate" and "getTime" handlers with it.
         dispatcher.register(new JsonHandler.TopicPublishHandler(this.em));
         dispatcher.register(new JsonHandler.EventHandler(this.em));
         dispatcher.register(new JsonHandler.TopicSubscriberHandler(this.em));

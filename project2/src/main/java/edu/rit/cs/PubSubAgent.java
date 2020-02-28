@@ -44,37 +44,14 @@ public class PubSubAgent implements Publisher, Subscriber {
     public void startconnection(String ipaddress, BufferedReader br) {
 
         new PubSubListner(this).start();
-        new PubSubAgentEcho(ipaddress, pubsub_id, ip).start();
-//        try {
-//            System.out.println("The value of Ip address is: "+ipaddress);
-//            System.out.println("The value of ip of event Manager is: "+InetAddress.getByName(ipaddress));
-//        } catch (UnknownHostException e) {
-//            System.out.println("Found error here");
-//            e.printStackTrace();
-//        }
         Socket socket;
 		try {
 			socket = new Socket(ipaddress, 11000);
 			ObjectOutputStream outputstream = new ObjectOutputStream(socket.getOutputStream());
 
-			System.out.println("pubsub_id: " + pubsub_id);
-			System.out.println("Sending pubsub_id: " + pubsub_id + "  ip: " + ip);
+//			System.out.println("pubsub_id: " + pubsub_id);
+//			System.out.println("Sending pubsub_id: " + pubsub_id + "  ip: " + ip);
 			outputstream.writeObject(pubsub_id + ":" + ip);
-//			List<String> list = new Vector<>();
-//			list.add("test1");
-//			list.add("test2");
-//
-//			Topic newTopic = new Topic(1, list, "Lololol");
-//			advertise(newTopic);
-//
-//			Event ev = new Event(10, newTopic, "testing", "hello whos there tell its worked");
-//			publish(ev);
-//
-//			subscribe(newTopic);
-//			publish(ev);
-//			subscribe("test1");
-//			unsubscribe();
-
 
 			socket.close();
 
@@ -84,7 +61,7 @@ public class PubSubAgent implements Publisher, Subscriber {
 		    e.printStackTrace();
 		}
 
-		System.out.println("entering startconnection");
+		//System.out.println("entering startconnection");
         this.pubsub_id = loginid();
 
         System.out.println("Enter the number to start 1) publisher 2) subscriber: ");
@@ -111,7 +88,7 @@ public class PubSubAgent implements Publisher, Subscriber {
                     try {
                         while (!((line = br.readLine()).equals("stop"))) {
                             keywords.add(line);
-                            System.out.println(line + " in pubsub advertise");
+                            //System.out.println(line + " in pubsub advertise");
                         }
 						System.out.println("Do you want to go through another round(y/n): ");
 						scan = new Scanner(System.in);
@@ -147,7 +124,7 @@ public class PubSubAgent implements Publisher, Subscriber {
                     try {
                         while (!((line = br.readLine()).equals("stop"))) {
                             keywords.add(line);
-                            System.out.println(line + " in pubsub advertise");
+                            //System.out.println(line + " in pubsub advertise");
                         }
 
 
@@ -305,13 +282,13 @@ public class PubSubAgent implements Publisher, Subscriber {
         int requestID = 100;
         Map<String, Object> myParams = new HashMap<>();
         myParams.put("topic", topic);
-        System.out.println("The value of ip in pubsubagent in publish is: " + ip + "pubsub_id : " + pubsub_id);
+        //System.out.println("The value of ip in pubsubagent in publish is: " + ip + "pubsub_id : " + pubsub_id);
         List<String> deviceinfo = new ArrayList<>();
         deviceinfo.add(pubsub_id);
         deviceinfo.add(ip + "");
 
         myParams.put("deviceinfo", deviceinfo);
-        System.out.println(myParams + "The value if myparams in pubsubaget advertise");
+        //System.out.println(myParams + "The value if myparams in pubsubaget advertise");
         JSONRPC2Request request = new JSONRPC2Request(method, requestID);
         request.setNamedParams(myParams);
         JSONRPC2Response response = null;

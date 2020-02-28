@@ -41,27 +41,27 @@ public class performoperations extends Thread {
     public void run(){
         if(this.option==1){
             if(this.operations_option == 1){
-                System.out.println("advertising--------------");
+                //System.out.println("advertising--------------");
                 this.em.advertise(newtopic);
             }else{
-                System.out.println("publishing--------------");
+                //System.out.println("publishing--------------");
                 this.em.publish(event,qos);
             }
         }else{
             if(this.operations_option == 1){
-                System.out.println("subscribing with topic--------------");
+                //System.out.println("subscribing with topic--------------");
                 this.em.subscribe(newtopic);
             }else if(this.operations_option == 2){
-                System.out.println("subscribing with keyword--------------");
+                //System.out.println("subscribing with keyword--------------");
                 this.em.subscribe(this.keyword);
             }else if(this.operations_option == 3){
-                System.out.println("un subscribing with topic--------------");
+                //System.out.println("un subscribing with topic--------------");
                 this.em.unsubscribe(this.newtopic);
             }else if(this.operations_option == 4){
-                System.out.println("unsubscribing to all topics--------------");
+                //System.out.println("unsubscribing to all topics--------------");
                 this.em.unsubscribe();
             }else if(this.operations_option == 5){
-                System.out.println("listing all topics--------------");
+                //System.out.println("listing all topics--------------");
                 this.em.listSubscribedTopics();
             }
 

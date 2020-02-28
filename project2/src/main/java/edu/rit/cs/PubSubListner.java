@@ -9,7 +9,7 @@ public class PubSubListner extends Thread {
     }
     public void run(){
         try {
-            System.out.println("the value of this.em.listen is: "+this.em.listen);
+            //System.out.println("the value of this.em.listen is: "+this.em.listen);
             while (this.em.listen) {
                 ServerSocket servsocket = new ServerSocket(9030);
                 new pubsubpacketanalyzer(servsocket.accept(),this.em).start();
@@ -17,7 +17,7 @@ public class PubSubListner extends Thread {
                 servsocket.close();
             }
         }catch (Exception e){
-            System.out.println("I am here in pubsub listner Yolo-----------------");
+            System.out.println("Error here!!");
             System.out.println(e.getMessage());
         }
     }

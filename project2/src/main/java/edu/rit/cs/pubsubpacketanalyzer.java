@@ -16,7 +16,7 @@ public class pubsubpacketanalyzer extends Thread {
 
 
         try {
-            System.out.println("Received packet");
+            //System.out.println("Received packet");
             ObjectInputStream inputstream = new ObjectInputStream(socket.getInputStream());
 
             Classfinder results = (Classfinder) inputstream.readObject();

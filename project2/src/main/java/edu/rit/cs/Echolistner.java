@@ -21,8 +21,6 @@ public class Echolistner extends Thread {
                 new Echopacketanlyzer(packet,em).start();
                 socket.close();
 
-
-
             }catch (Exception e){
             }
         }

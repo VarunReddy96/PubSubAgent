@@ -62,13 +62,13 @@ public class JsonHandler {
 							String deviceinfo = myParams.get(s).toString();
 							temp = deviceinfo.split(",");
 							String ipaddress = temp[1].substring(1,temp[1].length()-2);
-							System.out.println("The value of ipaddress in advertise topic JSONHANDLER is: "+ipaddress);
+							//System.out.println("The value of ipaddress in advertise topic JSONHANDLER is: "+ipaddress);
 							ip = InetAddress.getByName(ipaddress.substring(2));
 						} catch (UnknownHostException e) {
 							e.printStackTrace();
 						}
 						pubsub_macid = temp[0].substring(2,temp[0].length()-1);
-						System.out.println("The value of the pubsub_macid is: "+pubsub_macid);
+						//System.out.println("The value of the pubsub_macid is: "+pubsub_macid);
 						//advertise.put(pubsub_macid,ip);
 					}
 				}
@@ -86,13 +86,13 @@ public class JsonHandler {
 					for(String s: em.networkmap.keySet()){
 						Classfinder obj = currTopic;
 						for(InetAddress ipad: em.networkmap.get(s).keySet()){
-							System.out.println("The boolean of s.equals(pubsub_macid) is in JSONHANDLER: "+ (s.equals(pubsub_macid)));
-							System.out.println("The value of pubsubmacid: "+pubsub_macid+ " s is: "+s);
+							//System.out.println("The boolean of s.equals(pubsub_macid) is in JSONHANDLER: "+ (s.equals(pubsub_macid)));
+							//System.out.println("The value of pubsubmacid: "+pubsub_macid+ " s is: "+s);
 							if(!(s.equals(pubsub_macid))) {
-								System.out.println("Sending notofications ipad: "+ipad+" ip: "+ip);
+								//System.out.println("Sending notofications ipad: "+ipad+" ip: "+ip);
 								new SendNotifications(ipad, em, obj, s).start();
 							}else{
-								System.out.println("Not sending notifications because ipad: "+ipad+" ip: "+ip);
+								//System.out.println("Not sending notifications because ipad: "+ipad+" ip: "+ip);
 							}
 						}
 
@@ -146,19 +146,19 @@ public class JsonHandler {
 							String deviceinfo = myParams.get(s).toString();
 							temp = deviceinfo.split(",");
 							String ipaddress = temp[1].substring(1,temp[1].length()-2);
-							System.out.println("The value of ipaddress in advertise topic JSONHANDLER is: "+ipaddress);
+							//System.out.println("The value of ipaddress in advertise topic JSONHANDLER is: "+ipaddress);
 							ip = InetAddress.getByName(ipaddress.substring(2));
 						} catch (UnknownHostException e) {
 							e.printStackTrace();
 						}
 						pubsub_macid = temp[0].substring(2,temp[0].length()-1);
-						System.out.println("The value of the pubsub_macid is: "+pubsub_macid);
+						//System.out.println("The value of the pubsub_macid is: "+pubsub_macid);
 						//advertise.put(pubsub_macid,ip);
 					}
 				}
 				if(em.topicsubscribers.containsKey(currTopic.getName())){
 					em.topicsubscribers.get(currTopic.getName()).put(pubsub_macid,ip);
-					System.out.println("The subscriber is added to topic------"+em.topicsubscribers.get(currTopic.getName()));
+					//System.out.println("The subscriber is added to topic------"+em.topicsubscribers.get(currTopic.getName()));
 
 					Object input = "Subscriber added to topic";
 					return new JSONRPC2Response(input, req.getID());
@@ -198,7 +198,7 @@ public class JsonHandler {
 			if (req.getMethod().equals("unsubscribe")) {
 
 				// Echo first parameter
-				System.out.println("In unsubscribe-----------------");
+				//System.out.println("In unsubscribe-----------------");
 				String pubsub_macid = "";
 				ConcurrentHashMap<String,InetAddress> advertise = new ConcurrentHashMap<>();
 				InetAddress ip = null;
@@ -213,13 +213,13 @@ public class JsonHandler {
 							String deviceinfo = myParams.get(s).toString();
 							temp = deviceinfo.split(",");
 							String ipaddress = temp[1].substring(1,temp[1].length()-2);
-							System.out.println("The value of ipaddress in advertise topic JSONHANDLER is: "+ipaddress);
+							//System.out.println("The value of ipaddress in advertise topic JSONHANDLER is: "+ipaddress);
 							ip = InetAddress.getByName(ipaddress.substring(2));
 						} catch (UnknownHostException e) {
 							e.printStackTrace();
 						}
 						pubsub_macid = temp[0].substring(2,temp[0].length()-1);
-						System.out.println("The value of the pubsub_macid is: "+pubsub_macid);
+						//System.out.println("The value of the pubsub_macid is: "+pubsub_macid);
 						//advertise.put(pubsub_macid,ip);
 					}
 				}
@@ -230,7 +230,7 @@ public class JsonHandler {
 						}
 					}
 
-					System.out.println("The subscriber is removed from to topic------"+em.topicsubscribers.get(currTopic.getName()));
+					//System.out.println("The subscriber is removed from to topic------"+em.topicsubscribers.get(currTopic.getName()));
 
 					Object input = "Subscriber removed to topic";
 					return new JSONRPC2Response(input, req.getID());
@@ -270,7 +270,7 @@ public class JsonHandler {
 			if (req.getMethod().equals("unsubscribeall")) {
 
 				// Echo first parameter
-				System.out.println("In unsubscribeall-----------------");
+				//System.out.println("In unsubscribeall-----------------");
 				String pubsub_macid = "";
 				ConcurrentHashMap<String,InetAddress> advertise = new ConcurrentHashMap<>();
 				InetAddress ip = null;
@@ -283,13 +283,13 @@ public class JsonHandler {
 							String deviceinfo = myParams.get(s).toString();
 							temp = deviceinfo.split(",");
 							String ipaddress = temp[1].substring(1,temp[1].length()-2);
-							System.out.println("The value of ipaddress in advertise topic JSONHANDLER is: "+ipaddress);
+							//System.out.println("The value of ipaddress in advertise topic JSONHANDLER is: "+ipaddress);
 							ip = InetAddress.getByName(ipaddress.substring(2));
 						} catch (UnknownHostException e) {
 							e.printStackTrace();
 						}
 						pubsub_macid = temp[0].substring(2,temp[0].length()-1);
-						System.out.println("The value of the pubsub_macid is: "+pubsub_macid);
+						//System.out.println("The value of the pubsub_macid is: "+pubsub_macid);
 						//advertise.put(pubsub_macid,ip);
 					}
 				}
@@ -299,12 +299,12 @@ public class JsonHandler {
 
 					while (it.hasNext()) {
 						Topic t = (Topic) it.next();
-						System.out.println("The name of topic is: " + t.getName());
+						//System.out.println("The name of topic is: " + t.getName());
 
 						for (String macid : em.topicsubscribers.get(t.getName()).keySet()) {
 							if (macid.equals(pubsub_macid)) {
 								em.topicsubscribers.get(t.getName()).remove(macid);
-								System.out.println("The value of em.topicsubscribers is: " + em.topicsubscribers.get(t.getName()) + " topic name is: " + t.getName());
+								//System.out.println("The value of em.topicsubscribers is: " + em.topicsubscribers.get(t.getName()) + " topic name is: " + t.getName());
 
 							}
 						}
@@ -344,7 +344,8 @@ public class JsonHandler {
 			if (req.getMethod().equals("subscribekeyword")) {
 
 				// Echo first parameter
-				System.out.println("In SubscribedKeyword------------");
+				boolean check = false;
+				//System.out.println("In SubscribedKeyword------------");
 				String pubsub_macid = "";
 				ConcurrentHashMap<String,InetAddress> advertise = new ConcurrentHashMap<>();
 				InetAddress ip = null;
@@ -359,38 +360,47 @@ public class JsonHandler {
 							String deviceinfo = myParams.get(s).toString();
 							temp = deviceinfo.split(",");
 							String ipaddress = temp[1].substring(1,temp[1].length()-2);
-							System.out.println("The value of ipaddress in advertise topic JSONHANDLER is: "+ipaddress);
+							//System.out.println("The value of ipaddress in advertise topic JSONHANDLER is: "+ipaddress);
 							ip = InetAddress.getByName(ipaddress.substring(2));
 						} catch (UnknownHostException e) {
 							e.printStackTrace();
 						}
 						pubsub_macid = temp[0].substring(2,temp[0].length()-1);
-						System.out.println("The value of the pubsub_macid is: "+pubsub_macid);
+						//System.out.println("The value of the pubsub_macid is: "+pubsub_macid);
 						//advertise.put(pubsub_macid,ip);
 					}
 				}
+				Object input = "";
 
 				synchronized (em.objec){
 					Iterator it = em.Topicspresent.iterator();
 
 					while (it.hasNext()){
 						Topic t =(Topic)it.next();
-						System.out.println("The name of topic is: "+t.getName());
+						//System.out.println("The name of topic is: "+t.getName());
 
 						for(String keywords: t.getKeywords()){
 							if(keywords.equals(keyword)){
 								em.topicsubscribers.get(t.getName()).put(pubsub_macid,ip);
-								System.out.println("The value of em.topicsubscribers is: "+em.topicsubscribers.get(t.getName())+ " topic name is: "+t.getName());
-								Object input = "Subscriber added to topic";
-								return new JSONRPC2Response(input, req.getID());
+								check = true;
+								//System.out.println("The value of em.topicsubscribers is: "+em.topicsubscribers.get(t.getName())+ " topic name is: "+t.getName());
+
 							}
 						}
 					}
 
+
 				}
 
-				Object input = "Keyword Not found";
-				return new JSONRPC2Response(input, req.getID());
+				if(!check){
+					input = "Keyword Not found";
+					return new JSONRPC2Response(input, req.getID());
+
+				}else{
+					input = "Subscriber added to topic";
+					return new JSONRPC2Response(input, req.getID());
+				}
+
 
 			}
 			else {
@@ -443,14 +453,14 @@ public class JsonHandler {
 							temp = deviceinfo.split(",");
 							System.out.println(deviceinfo+"-------------"+temp[2]);
 							String ipaddress = temp[1].substring(1,temp[1].length()-1);
-							System.out.println("The value of ipaddress in advertise topic JSONHANDLER is: "+ipaddress);
+							//System.out.println("The value of ipaddress in advertise topic JSONHANDLER is: "+ipaddress);
 							ip = InetAddress.getByName(ipaddress.substring(2));
 							Qos =Integer.parseInt(temp[2].substring(1,temp[2].length()-2));
 						} catch (UnknownHostException e) {
 							e.printStackTrace();
 						}
 						pubsub_macid = temp[0].substring(2,temp[0].length()-1);
-						System.out.println("The value of the pubsub_macid is: "+pubsub_macid);
+						//System.out.println("The value of the pubsub_macid is: "+pubsub_macid);
 						//advertise.put(pubsub_macid,ip);
 					}
 				}
@@ -458,7 +468,7 @@ public class JsonHandler {
 					ConcurrentHashMap<String ,InetAddress> subscriberslist = em.topicsubscribers.get(currEvent.getTopic().getName());
 					for(String macid: subscriberslist.keySet()){
 						Classfinder obj = currEvent;
-						System.out.println("Sending notifications of publish macid: "+macid + "");
+						//System.out.println("Sending notifications of publish macid: "+macid + "");
 						new SendNotifications(subscriberslist.get(macid),em,obj,macid,Qos).start();
 					}
 
@@ -480,79 +490,4 @@ public class JsonHandler {
 		}
 	}
 
-
-	// Implements a handler for an "echo" JSON-RPC method
-	 public static class EchoHandler implements RequestHandler {
-		
-
-	     // Reports the method names of the handled requests
-	     public String[] handledRequests() {
-			
-	         return new String[]{"echo"};
-	     }
-			
-			
-	      // Processes the requests
-	      public JSONRPC2Response process(JSONRPC2Request req, MessageContext ctx) {
-				
-	          if (req.getMethod().equals("echo")) {
-					
-	              // Echo first parameter
-				  Map<String, Object> myParams = req.getNamedParams();
-	              Object input = myParams.get("hello");
-		 
-		         return new JSONRPC2Response(input, req.getID());
-	         }
-	         else {
-		
-	             // Method name not supported
-					
-	             return new JSONRPC2Response(JSONRPC2Error.METHOD_NOT_FOUND, req.getID());
-		    }
-	     }
-	 }
-		
-		
-	 
-	 
-	 // Implements a handler for "getDate" and "getTime" JSON-RPC methods
-	 // that return the current date and time
-	 public static class DateTimeHandler implements RequestHandler {
-		
-		
-	     // Reports the method names of the handled requests
-		public String[] handledRequests() {
-		
-		    return new String[]{"getDate", "getTime"};
-		}
-		
-		
-		// Processes the requests
-		public JSONRPC2Response process(JSONRPC2Request req, MessageContext ctx) {
-		
-		    if (req.getMethod().equals("getDate")) {
-		    
-		        DateFormat df = DateFormat.getDateInstance();
-			
-			String date = df.format(new Date());
-			
-			return new JSONRPC2Response(date, req.getID());
-
-	         }
-	         else if (req.getMethod().equals("getTime")) {
-		    
-		        DateFormat df = DateFormat.getTimeInstance();
-			
-			String time = df.format(new Date());
-			
-			return new JSONRPC2Response(time, req.getID());
-	         }
-		    else {
-		    
-		        // Method name not supported
-			
-			return new JSONRPC2Response(JSONRPC2Error.METHOD_NOT_FOUND, req.getID());
-	         }
-	     }
-	 }
 }

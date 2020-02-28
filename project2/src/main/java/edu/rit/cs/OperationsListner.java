@@ -9,7 +9,7 @@ public class OperationsListner extends Thread {
         this.em = em;
     }
     public void run(){
-        System.out.println("Starting the operationslistner");
+        //System.out.println("Starting the operationslistner");
         try {
             while (true) {
                 ServerSocket servsocket = new ServerSocket(10001);

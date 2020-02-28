@@ -24,12 +24,12 @@ public class packetanalyzer extends Thread {
             String message = (String)inputstream.readObject();
             String[] vals = message.split(":");
 
-            System.out.println("Before if statement in packetanalyzer-----------: "+em.networkmap);
+            //System.out.println("Before if statement in packetanalyzer-----------: "+em.networkmap);
             if(em.networkmap.containsKey(vals[0])){
-                System.out.println("in if statement-- "+vals[0]);
+                //System.out.println("in if statement-- "+vals[0]);
                 if(em.messagequeue.containsKey(vals[0])){
                     for(InetAddress ip: em.messagequeue.get(vals[0]).keySet()){
-                        System.out.println("Sending Missed messages back to the clients");
+                        //System.out.println("Sending Missed messages back to the clients");
                         new SendNotifications(ip,em,em.messagequeue.get(vals[0]).get(ip),vals[0]).start();
                     }
                 }
@@ -39,9 +39,9 @@ public class packetanalyzer extends Thread {
                 pubsubdetails.put(InetAddress.getByName(vals[1].substring(1)), System.currentTimeMillis());
                 em.networkmap.put(vals[0],pubsubdetails);
                 for(String s: em.networkmap.keySet()){
-                    System.out.println(s+"in packetanalyzer:-------"+em.networkmap.get(s));
+                    //System.out.println(s+"in packetanalyzer:-------"+em.networkmap.get(s));
                 }
-                System.out.println();
+                //System.out.println();
             }
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();

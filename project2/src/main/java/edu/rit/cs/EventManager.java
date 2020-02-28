@@ -24,7 +24,7 @@ public class EventManager{
 	private void startService() {
 		new OperationsListner(this).start();
 		new EMListner(this).start();
-		new Echolistner(this).start();
+		//new Echolistner(this).start();
 	}
 
 	/*
