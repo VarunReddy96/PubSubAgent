@@ -4,38 +4,18 @@
 version: '3'
 
 services:
-  rmiserver:
+  pubsubagent:
     build:
       context: .
       dockerfile: Dockerfile
     image: csci652:latest
-    container_name: rmiserver
-    working_dir: /csci652/remote_procedure_call
     networks:
       - csci652network
-    ports:
-      - 1099
     command:
       - /bin/bash
       - -c
       - |
-        java -cp target/remote_procedure_call-1.0-SNAPSHOT.jar edu.rit.cs.JsonRPCServer
-        echo "Initialize rmiserver...done!"
-        tail -f /dev/null
-
-  rmiclient:
-    image: csci652:latest
-    container_name: rmiclient
-    depends_on:
-      - rmiserver
-    working_dir: /csci652/remote_procedure_call
-    networks:
-    - csci652network
-    command:
-      - /bin/bash
-      - -c
-      - |
-        java -cp target/remote_procedure_call-1.0-SNAPSHOT.jar edu.rit.cs.JsonRPCClient rmiserver 10001
+        echo "Initialize pubsubagent...done!"
         tail -f /dev/null
 
 
