@@ -1,7 +1,5 @@
 package edu.rit.cs;
 
-import org.omg.Messaging.SYNC_WITH_TRANSPORT;
-
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.net.Inet4Address;
