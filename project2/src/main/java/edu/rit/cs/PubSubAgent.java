@@ -45,9 +45,9 @@ public class PubSubAgent implements Publisher, Subscriber {
 
         new PubSubListner(this).start();
         new PubSubAgentEcho(ipaddress, pubsub_id, ip).start();
-		Socket socket;
+        Socket socket;
 		try {
-			socket = new Socket(InetAddress.getByName(ipaddress), 9010);
+			socket = new Socket(ipaddress, 9010);
 			ObjectOutputStream outputstream = new ObjectOutputStream(socket.getOutputStream());
 
 			System.out.println("pubsub_id: " + pubsub_id);
@@ -72,7 +72,7 @@ public class PubSubAgent implements Publisher, Subscriber {
 			socket.close();
 
 		} catch (IOException e) {
-			System.out.println("Error here at socket pubsub");
+			System.out.println("Error here at socket pubsub ");
 			System.out.println(e.getMessage());
 		    e.printStackTrace();
 		}
