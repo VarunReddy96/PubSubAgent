@@ -289,6 +289,7 @@ public class PubSubAgent implements Publisher, Subscriber {
 
 
 		}
+        this.listen = false;
 
 
 
@@ -621,6 +622,7 @@ public class PubSubAgent implements Publisher, Subscriber {
 			e.printStackTrace();
 		}
 		System.out.println("I am outta here!!!");
+		System.exit(0);
 
     }
 
