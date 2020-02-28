@@ -26,7 +26,7 @@ public class packetanalyzer extends Thread {
 
             System.out.println("Before if statement in packetanalyzer-----------: "+em.networkmap);
             if(em.networkmap.containsKey(vals[0])){
-                System.out.println("in if statement");
+                System.out.println("in if statement-- "+vals[0]);
                 if(em.messagequeue.containsKey(vals[0])){
                     for(InetAddress ip: em.messagequeue.get(vals[0]).keySet()){
                         System.out.println("Sending Missed messages back to the clients");
