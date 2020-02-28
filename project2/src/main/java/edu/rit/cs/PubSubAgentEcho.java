@@ -30,8 +30,7 @@ public class PubSubAgentEcho extends Thread{
 
             socket.close();
 
-        } catch (
-                IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }

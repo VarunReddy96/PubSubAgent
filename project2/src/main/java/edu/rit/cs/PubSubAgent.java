@@ -36,6 +36,7 @@ public class PubSubAgent implements Publisher, Subscriber {
             ip = InetAddress.getByName(ipaddress);
             //System.out.println("pubsub_id: "+pubsub_id);
         } catch (MalformedURLException | UnknownHostException e) {
+            System.out.println("I am ere in catch in serverURL");
             e.printStackTrace();
         }
     }
@@ -154,10 +155,10 @@ public class PubSubAgent implements Publisher, Subscriber {
 					System.out.println("in else----------------");
                 	//br = new BufferedReader(new InputStreamReader(System.in));
                 	cont = "n";
-                	this.listen = false;
 				}
 
 			} while (cont.equals("y"));
+            this.listen = false;
 
         }else{
 			do {
@@ -250,12 +251,13 @@ public class PubSubAgent implements Publisher, Subscriber {
 					System.out.println("in else----------------");
 					//br = new BufferedReader(new InputStreamReader(System.in));
 					cont = "n";
-					this.listen = false;
+
 
 				}
 
 
 			} while (cont.equals("y"));
+            this.listen = false;
 
 
 		}
@@ -561,7 +563,7 @@ public class PubSubAgent implements Publisher, Subscriber {
 
             byte[] mac = network.getHardwareAddress();
 
-            System.out.print("Current MAC address : ");
+            System.out.println("Current MAC address : ");
 
 
             for (int i = 0; i < mac.length; i++) {
@@ -585,8 +587,6 @@ public class PubSubAgent implements Publisher, Subscriber {
 
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     	new PubSubAgent(args).startconnection(args[0],br);
-		new PubSubAgent(args).startconnection(args[0],br);
-		new PubSubAgent(args).startconnection(args[0],br);
 		try {
 			br.close();
 		} catch (IOException e) {

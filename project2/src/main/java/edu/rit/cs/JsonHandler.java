@@ -86,8 +86,9 @@ public class JsonHandler {
 					for(String s: em.networkmap.keySet()){
 						Classfinder obj = currTopic;
 						for(InetAddress ipad: em.networkmap.get(s).keySet()){
-							System.out.println("The boolean of iad!=ip is in JSONHANDLER: "+ (ipad!=ip));
-							if((ipad+"").equals(ip+"")) {
+							System.out.println("The boolean of s.equals(pubsub_macid) is in JSONHANDLER: "+ (s.equals(pubsub_macid)));
+							System.out.println("The value of pubsubmacid: "+pubsub_macid+ " s is: "+s);
+							if(!(s.equals(pubsub_macid))) {
 								System.out.println("Sending notofications ipad: "+ipad+" ip: "+ip);
 								new SendNotifications(ipad, em, obj, s).start();
 							}else{
