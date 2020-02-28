@@ -30,4 +30,4 @@ COPY LICENSE /csci652/
 WORKDIR /csci652
 
 # go into the working directory and build java package using maven
-RUN cd /csci652 && mvn package
+RUN cd /csci652 && mvn package && cd /csci652/project2
