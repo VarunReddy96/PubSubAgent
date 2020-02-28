@@ -32,11 +32,11 @@ public class PubSubAgent implements Publisher, Subscriber {
             pubsub_id = loginid();
             ip = InetAddress.getLocalHost();
             String ipaddress = ("" + ip).split("/")[1];
-            System.out.println("eh value of ip in pusub is : " + ipaddress);
+            //System.out.println("eh value of ip in pusub is : " + ipaddress);
             ip = InetAddress.getByName(ipaddress);
             //System.out.println("pubsub_id: "+pubsub_id);
         } catch (MalformedURLException | UnknownHostException e) {
-            System.out.println("I am ere in catch in serverURL");
+            System.out.println("I am here in catch in serverURL");
             e.printStackTrace();
         }
     }
@@ -62,7 +62,7 @@ public class PubSubAgent implements Publisher, Subscriber {
 		}
 
 		//System.out.println("entering startconnection");
-        this.pubsub_id = loginid();
+        //this.pubsub_id = loginid();
 
         System.out.println("Enter the number to start 1) publisher 2) subscriber: ");
         Scanner scan = new Scanner(System.in);
@@ -142,7 +142,7 @@ public class PubSubAgent implements Publisher, Subscriber {
 
                     new performoperations(this, option, operation_option, event,qos).start();
                 }else {
-					System.out.println("in else----------------");
+					//System.out.println("in else----------------");
                 	//br = new BufferedReader(new InputStreamReader(System.in));
                 	cont = "n";
                 	this.listen = false;
@@ -252,7 +252,7 @@ public class PubSubAgent implements Publisher, Subscriber {
 
                     new performoperations(this, option, operation_option).start();
                 }else {
-					System.out.println("in else----------------");
+					//System.out.println("in else----------------");
 					//br = new BufferedReader(new InputStreamReader(System.in));
 					cont = "n";
                     this.listen = false;
@@ -326,7 +326,7 @@ public class PubSubAgent implements Publisher, Subscriber {
         int requestID = 1000;
         Map<String, Object> myParams = new HashMap<>();
         myParams.put("topic", keyword);
-        System.out.println("The value of ip in pubsubagent in subscribe with keyword is: " + ip + "pubsub_id : " + pubsub_id);
+        //System.out.println("The value of ip in pubsubagent in subscribe with keyword is: " + ip + "pubsub_id : " + pubsub_id);
         List<String> deviceinfo = new ArrayList<>();
         deviceinfo.add(pubsub_id);
         deviceinfo.add(ip + "");
@@ -370,13 +370,13 @@ public class PubSubAgent implements Publisher, Subscriber {
         int requestID = 10000;
         Map<String, Object> myParams = new HashMap<>();
         myParams.put("topic", topic);
-        System.out.println("The value of ip in pubsubagent in publish is: " + ip + "pubsub_id : " + pubsub_id);
+        //System.out.println("The value of ip in pubsubagent in publish is: " + ip + "pubsub_id : " + pubsub_id);
         List<String> deviceinfo = new ArrayList<>();
         deviceinfo.add(pubsub_id);
         deviceinfo.add(ip + "");
 
         myParams.put("deviceinfo", deviceinfo);
-        System.out.println(myParams + "The value if myparams in pubsubaget advertise");
+        //System.out.println(myParams + "The value if myparams in pubsubaget advertise");
         JSONRPC2Request request = new JSONRPC2Request(method, requestID);
         request.setNamedParams(myParams);
         JSONRPC2Response response = null;
@@ -413,13 +413,13 @@ public class PubSubAgent implements Publisher, Subscriber {
         int requestID = 10005;
         Map<String, Object> myParams = new HashMap<>();
         myParams.put("topic", "");
-        System.out.println("The value of ip in pubsubagent in publish is: " + ip + "pubsub_id : " + pubsub_id);
+        //System.out.println("The value of ip in pubsubagent in publish is: " + ip + "pubsub_id : " + pubsub_id);
         List<String> deviceinfo = new ArrayList<>();
         deviceinfo.add(pubsub_id);
         deviceinfo.add(ip + "");
 
         myParams.put("deviceinfo", deviceinfo);
-        System.out.println(myParams + "The value if myparams in pubsubaget advertise");
+        //System.out.println(myParams + "The value if myparams in pubsubaget advertise");
         JSONRPC2Request request = new JSONRPC2Request(method, requestID);
         request.setNamedParams(myParams);
         JSONRPC2Response response = null;
@@ -476,15 +476,15 @@ public class PubSubAgent implements Publisher, Subscriber {
         int requestID = 10;
         Map<String, Object> myParams = new HashMap<>();
         myParams.put("event", event);
-        System.out.println("The value of ip in pubsubagent in publish is: " + ip + "pubsub_id : " + pubsub_id);
+        //System.out.println("The value of ip in pubsubagent in publish is: " + ip + "pubsub_id : " + pubsub_id);
         List<String> deviceinfo = new ArrayList<>();
         deviceinfo.add(pubsub_id);
         deviceinfo.add(ip + "");
         deviceinfo.add(qos + "");
-        System.out.println("The value of deviceInfo in publish is: " + deviceinfo);
+        //System.out.println("The value of deviceInfo in publish is: " + deviceinfo);
 
         myParams.put("deviceinfo", deviceinfo);
-        System.out.println(myParams + "The value if myparams in pubsubaget advertise");
+        //System.out.println(myParams + "The value if myparams in pubsubaget advertise");
         JSONRPC2Request request = new JSONRPC2Request(method, requestID);
         request.setNamedParams(myParams);
         JSONRPC2Response response = null;
@@ -522,13 +522,13 @@ public class PubSubAgent implements Publisher, Subscriber {
         int requestID = 0;
         Map<String, Object> myParams = new HashMap<>();
         myParams.put("topic", newTopic);
-        System.out.println("The value of ip in pubsubagent in advertise is: " + ip + "pubsub_id : " + pubsub_id);
+        //System.out.println("The value of ip in pubsubagent in advertise is: " + ip + "pubsub_id : " + pubsub_id);
         List<String> deviceinfo = new ArrayList<>();
         deviceinfo.add(pubsub_id);
         deviceinfo.add(ip + "");
 
         myParams.put("deviceinfo", deviceinfo);
-        System.out.println(myParams + "The value if myparams in pubsubaget advertise");
+        //System.out.println(myParams + "The value if myparams in pubsubaget advertise");
         JSONRPC2Request request = new JSONRPC2Request(method, requestID);
         request.setNamedParams(myParams);
         JSONRPC2Response response = null;
@@ -569,7 +569,7 @@ public class PubSubAgent implements Publisher, Subscriber {
 
             byte[] mac = network.getHardwareAddress();
 
-            System.out.println("Current MAC address : ");
+            //System.out.println("Current MAC address : ");
 
 
             for (int i = 0; i < mac.length; i++) {
@@ -586,6 +586,7 @@ public class PubSubAgent implements Publisher, Subscriber {
             e.printStackTrace();
 
         }
+        System.out.println("Current MAC address : "+sb.toString());
         return sb.toString();
     }
 
@@ -598,7 +599,7 @@ public class PubSubAgent implements Publisher, Subscriber {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		System.out.println("I am outta here!!!");
+		//System.out.println("I am outta here!!!");
 		System.exit(0);
 
     }
