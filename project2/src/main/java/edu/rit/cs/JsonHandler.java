@@ -6,8 +6,7 @@ package edu.rit.cs;
 * real life applications may be defined as regular classes within their old 
 * source files.
 *
-* @author Vladimir Dzhuvinov
-* @version 2011-03-05
+* @author Bujala Varun Reddy
 */ 
 
 import java.net.InetAddress;

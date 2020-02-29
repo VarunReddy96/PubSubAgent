@@ -30,7 +30,7 @@ public class SendNotifications extends Thread {
     }
 
     public void run(){
-        System.out.println("In send Notifications ip is: "+this.ip);
+        //System.out.println("In send Notifications ip is: "+this.ip);
         try(Socket socket = new Socket(this.ip,9030)) {
             ObjectOutputStream outputstream = new ObjectOutputStream(socket.getOutputStream());
 
