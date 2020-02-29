@@ -56,7 +56,7 @@ public class JsonHandler {
 				Topic currTopic = gson.fromJson(myParams.get("topic").toString(), Topic.class);
 				for(String s: myParams.keySet()){
 					if(!(s.equals("topic"))){
-						System.out.println();
+						//System.out.println();
 						String[] temp = {};
 						try {
 							String deviceinfo = myParams.get(s).toString();
@@ -436,7 +436,7 @@ public class JsonHandler {
 			if (req.getMethod().equals("publish")) {
 
 				// Echo first parameter
-				System.out.println("In EventHandler");
+				//System.out.println("In EventHandler");
 				int Qos = 0;
 				Map<String,Object> myParams = req.getNamedParams();
 				Gson gson = new Gson();
@@ -451,7 +451,7 @@ public class JsonHandler {
 						try {
 							String deviceinfo = myParams.get(s).toString();
 							temp = deviceinfo.split(",");
-							System.out.println(deviceinfo+"-------------"+temp[2]);
+							//System.out.println(deviceinfo+"-------------"+temp[2]);
 							String ipaddress = temp[1].substring(1,temp[1].length()-1);
 							//System.out.println("The value of ipaddress in advertise topic JSONHANDLER is: "+ipaddress);
 							ip = InetAddress.getByName(ipaddress.substring(2));

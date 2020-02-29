@@ -68,7 +68,7 @@ public class operationspacketanalyzer extends Thread {
                 }
             }
 
-            System.out.println(body.toString());
+            //System.out.println(body.toString());
             JSONRPC2Request request = null;
             try {
                 request = JSONRPC2Request.parse(body.toString());
